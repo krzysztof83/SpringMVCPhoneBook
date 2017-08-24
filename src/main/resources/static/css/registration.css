@@ -1,0 +1,35 @@
+body {
+    background-color: #22365c;
+    font-family: 'Quattrocento Sans', sans-serif;
+    color:white;
+    text-align:center;
+}
+
+.form-horizontal {
+  max-width: 420px;
+  padding: 30px 38px 66px;
+  margin: 0 auto;
+  background-color: #22365c;
+  position: relative;
+  text-align:center;
+  }
+
+.form-group{
+position: center;height: auto;
+width:100%;
+
+}
+
+.col-sm-9{
+position: center;
+text-align:center;
+margin: 0 auto;
+height: auto;
+width:100%;
+}
+
+.validation-message {
+	font-style: normal;
+	font-size: 12px;
+	color: #FF1C19;
+}

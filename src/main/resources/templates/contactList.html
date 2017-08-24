@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: site-head">
+    <title>Phonebook : Contact List</title>
+</head>
+<body>
+<header th:replace="layout :: site-header"/>
+<h1>Contact List</h1>
+Now is: <b th:text="${execInfo.now.time}">date and time</b>
+
+<h2>Persons</h2>
+<table border="1" id="table_contact_list">
+    <tr>
+        <th>First name</th>
+        <th>Second Name</th>
+        <th>Home Phone</th>
+        <th>Business Phone</th>
+        <th>Email</th>
+        <th>edit</th>
+        <th>delete</th>
+    </tr>
+
+    <tr th:each="person : ${persons}">
+        <td th:text="${person.firstName}"></td>
+        <td th:text="${person.secondName}"></td>
+        <td th:text="${#numbers.formatInteger(person.homePhone,3,'WHITESPACE')}"></td>
+        <td th:text="${#numbers.formatInteger(person.businessPhone,3,'WHITESPACE')}"></td>
+        <td th:text="${person.email}"></td>
+
+        <td>
+            <a href="person/edit/{id}(id=${person.ID}).html" th:href="@{/person/edit/{id}(id=${person.ID})}" id="header_icon_edit">
+                <div>
+                    <i class="icon-pencil"></i><br/>
+                </div>
+            </a>
+        </td>
+
+        <td>
+            <a href="delete/{id}(id=${person.ID}).html" th:href="@{/delete/{id}(id=${person.ID})}" id="header_icon_delete">
+                <div>
+                    <i class="icon-trash-empty"></i><br/>
+                </div>
+            </a>
+        </td>
+    </tr>
+</table>
+
+<footer th:replace="layout :: site-footer"/>
+</body>
+</html>

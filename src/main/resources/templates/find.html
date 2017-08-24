@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: site-head">
+    <title>Phonebook : Find Person</title>
+</head>
+<body>
+<header th:replace="layout :: site-header" />
+<h1>Find Person</h1>
+Now is: <b th:text="${execInfo.now.time}">date and time</b>
+
+
+<form action="#" th:action="@{/persons/find}" th:object="${person}" method="post" id="table_find_person">
+    <table>
+        <tr>
+            <td>First name:</td>
+            <td><input type="text" th:field="*{firstName}" /></td>
+            <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First name Error</td>
+        </tr>
+        <tr>
+            <td>Second name:</td>
+            <td><input type="text" th:field="*{secondName}" /></td>
+            <td th:if="${#fields.hasErrors('secondName')}" th:errors="*{secondName}">Second name Error</td>
+        </tr>
+        <tr>
+            <td>Home phone:</td>
+            <td><input type="number" th:field="*{homePhone}" /></td>
+            <td th:if="${#fields.hasErrors('homePhone')}" th:errors="*{homePhone}">Home phone Error</td>
+        </tr>
+        <tr>
+            <td>Business phone:</td>
+            <td><input type="number" th:field="*{businessPhone}" /></td>
+            <td th:if="${#fields.hasErrors('businessPhone')}" th:errors="*{businessPhone}">Business phone Error</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td><input type="text" th:field="*{email}" /></td>
+            <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit" class="button" id="submit_button">
+                    Find
+                </button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+<div class="container" id="find_result">
+    <div th:if="${persons != null and not #lists.isEmpty(persons)}">
+        <h3>Search result for question</h3>
+        <table class="table table-striped" border="1">
+            <tr>
+                <th>First name</th>
+                <th>Second Name</th>
+                <th>Home Phone</th>
+                <th>Business Phone</th>
+                <th>Email</th>
+
+            </tr>
+
+            <tr>
+                <td th:text="${person.firstName}"></td>
+                <td th:text="${person.secondName}"></td>
+                <td th:text="${person.homePhone}"></td>
+                <td th:text="${person.businessPhone}"></td>
+                <td th:text="${person.email}"></td>
+            </tr>
+        </table>
+        <h2>ReservationList</h2>
+        <table class="table table-striped" border="1" >
+            <tr>
+                <th>First name</th>
+                <th>Second Name</th>
+                <th>Home Phone</th>
+                <th>Business Phone</th>
+                <th>Email</th>
+                <th>Edit</th>
+                <th>Delete</th>
+
+            </tr>
+
+            <tr th:each="person : ${persons}">
+                <td th:text="${person.firstName}"></td>
+                <td th:text="${person.secondName}"></td>
+                <td th:text="${#numbers.formatInteger(person.homePhone,3,'WHITESPACE')}"></td>
+                <td th:text="${#numbers.formatInteger(person.businessPhone,3,'WHITESPACE')}"></td>
+                <td th:text="${person.email}"></td>
+                <td>
+                    <a href="person/edit/{id}(id=${person.ID}).html" th:href="@{/person/edit/{id}(id=${person.ID})}" id="header_icon_edit">
+                        <div>
+                            <i class="icon-pencil"></i><br/>
+                        </div>
+                    </a>
+                </td>
+                <td>
+                    <a href="delete/{id}(id=${person.ID}).html" th:href="@{/delete/{id}(id=${person.ID})}" id="header_icon_delete">
+                        <div>
+                            <i class="icon-trash-empty"></i><br/>
+                        </div>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<footer th:replace="layout :: site-footer" />
+</body>
+</html>

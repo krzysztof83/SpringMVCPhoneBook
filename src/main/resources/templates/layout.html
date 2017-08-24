@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="site-head">
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="../public/css/styles.css" th:href="@{/css/styles.css}"/>
+    <link rel="stylesheet" href="../public/fontello/css/fontello.css" th:href="@{/fontello/css/fontello.css}"/>
+    <link rel="icon" href="../public/img/phone_book.ico" th:href="@{/img/phone_book.ico}"/>
+    <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700" rel="stylesheet"/>
+    <script src="../public/js/jquery-3.1.0.min.js" th:src="@{/js/jquery-3.1.0.min.js}"></script>
+    <script src="../public/js/phonebook-scripts.js" th:src="@{/js/phonebook-scripts.js}"></script>
+    <meta th:include="this :: head" th:remove="tag"/>
+</head>
+<body>
+<header th:fragment="site-header">
+
+    <a href="contactList.html" th:href="@{/contactList}"><img src="../public/img/phone_book.png"
+                                                 th:src="@{/img/phone_book.png}"/></a>
+
+    <a href="contactList.html" th:href="@{/contactList}" id="header_icon_contact">
+        <div>
+            <i class="icon-address-book"></i><br/>Contact List
+        </div>
+    </a>
+
+    <a href="person/create.html" th:href="@{/person/create}" id="header_icon_create">
+        <div>
+            <i class="icon-user-plus"></i><br/>Create Person
+        </div>
+    </a>
+
+    <a href="persons/find.html" th:href="@{/persons/find}" id="header_icon_find">
+        <div>
+            <i class="icon-search"></i><br/>Find Person
+        </div>
+    </a>
+
+    <a href="logout.html" th:href="@{/logout}" id="logged-in-info">
+        <div>
+            <i class="icon-logout"></i><br/>Logout
+        </div>
+    </a>
+
+</header>
+<h1>Welcome</h1>
+<p>PHONEBOOK</p>
+<footer th:fragment="site-footer">
+    &copy;2017, Phonebook by Krzysztof Czechowski,  <i class=" icon-mail"></i>k.czechowski83@gmail.com <i class=" icon-phone"></i>730 588 094
+</footer>
+</body>
+</html>

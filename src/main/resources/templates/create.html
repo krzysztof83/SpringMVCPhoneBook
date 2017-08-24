@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: site-head">
+    <title>Phonebook : Create Person</title>
+</head>
+<body>
+<header th:replace="layout :: site-header" />
+<h1>Create Person</h1>
+Now is: <b th:text="${execInfo.now.time}">date and time</b>
+
+
+<form action="#" th:action="@{/person/create}" th:object="${person}" method="post" id="table_create_person">
+    <table>
+        <tr>
+            <td>First name:</td>
+            <td><input type="text" th:field="*{firstName}" /></td>
+            <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First name Error</td>
+        </tr>
+        <tr>
+            <td>Second name:</td>
+            <td><input type="text" th:field="*{secondName}" /></td>
+            <td th:if="${#fields.hasErrors('secondName')}" th:errors="*{secondName}">Second name Error</td>
+        </tr>
+        <tr>
+            <td>Home phone:</td>
+            <td><input type="number" th:field="*{homePhone}" /></td>
+            <td th:if="${#fields.hasErrors('homePhone')}" th:errors="*{homePhone}">Home phone Error</td>
+        </tr>
+        <tr>
+            <td>Business phone:</td>
+            <td><input type="number" th:field="*{businessPhone}" /></td>
+            <td th:if="${#fields.hasErrors('businessPhone')}" th:errors="*{businessPhone}">Business phone Error</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td><input type="text" th:field="*{email}" /></td>
+            <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit" class="button" id="submit_button">
+                    Save
+                </button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<footer th:replace="layout :: site-footer" />
+</body>
+</html>

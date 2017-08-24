@@ -1,0 +1,115 @@
+body{
+    background: #22365c;
+    color: #E4F1FE;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    font-family: 'Quattrocento Sans', sans-serif;
+}
+
+body>header {
+    width: 100%;
+    background: #c5eff7;
+    padding: 5px;
+    font-color: #00ff7f;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+}
+
+a, u {
+    text-decoration: none;
+    color:white;
+}
+
+body>header>a>img, body>header a  {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0px 5px;
+    font-size: 1.2em;
+}
+
+body>footer {
+    background: #f7f7f7;
+    color: #777777;
+    padding: 5px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+#header_icon_contact{
+    color: #22365c;
+}
+#header_icon_contact:hover{
+    color: #a74165;
+}
+
+#header_icon_create{
+    color: #22365c;
+}
+#header_icon_create:hover{
+    color: #a74165;
+}
+
+#header_icon_find{
+    color: #22365c;
+}
+#header_icon_find:hover{
+    color: #a74165;
+}
+
+
+#header_icon_edit:hover{
+color:#a74165
+}
+
+
+#header_icon_delete:hover{
+color:#a74165
+}
+
+#logged-in-info {
+    float: right;
+    color: #22365c;
+    cursor: pointer;
+}
+#logged-in-info:hover {
+    color: #a74165;
+}
+
+#table_contact_list{
+font-size:22px;
+}
+
+#table_create_person{
+font-size:22px;
+}
+
+#table_find_person{
+font-size:22px;
+}
+
+#find_result{
+font-size:22px;
+}
+
+#submit_button {
+    background-color: #c5eff7;
+    border: 3px solid #c5eff7;
+    padding: 15px 15px;
+    color: #22365c;
+    font-size:22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 20%;
+    font-weight: bold;
+    webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+#submit_button:hover{
+background-color: #22365c;
+color: #c5eff7;
+}
